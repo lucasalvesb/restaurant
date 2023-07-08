@@ -8,6 +8,7 @@ import { listCategories } from './app/useCases/categories/listCategories';
 import { createCategory } from './app/useCases/categories/createCategory';
 import { listProducts } from './app/useCases/products/listProducts';
 import { createProduct } from './app/useCases/products/createProduct';
+import { deleteProduct } from './app/useCases/products/deleteProduct';
 
 export const router = Router();
 
@@ -33,6 +34,9 @@ router.get('/products', listProducts);
 
 // Create product
 router.post('/products', upload.single('image'), createProduct);
+
+// Delete product
+router.delete('/products/:productId', deleteProduct);
 
 // Get products by category
 router.get('/categories/:categoryId/products', (req, res) => {
