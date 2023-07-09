@@ -11,6 +11,8 @@ import { createProduct } from './app/useCases/products/createProduct';
 import { deleteProduct } from './app/useCases/products/deleteProduct';
 import { deleteCategory } from './app/useCases/categories/deleteCategory';
 import { listProductsByCategory } from './app/useCases/categories/listProductsByCategory';
+import { listOrders } from './app/useCases/orders/listOrders';
+import { createOrder } from './app/useCases/orders/createOrder';
 
 export const router = Router();
 
@@ -47,14 +49,10 @@ router.delete('/products/:productId', deleteProduct);
 router.get('/categories/:categoryId/products', listProductsByCategory);
 
 // List orders
-router.get('/orders', (req, res) => {
-  res.send('OK');
-});
+router.get('/orders', listOrders);
 
 // Create order
-router.post('/orders', (req, res) => {
-  res.send('OK');
-});
+router.post('/orders', createOrder);
 
 // Change order status
 // Put = change everything // Patch = individual changes
