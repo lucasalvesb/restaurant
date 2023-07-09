@@ -13,6 +13,7 @@ import { deleteCategory } from './app/useCases/categories/deleteCategory';
 import { listProductsByCategory } from './app/useCases/categories/listProductsByCategory';
 import { listOrders } from './app/useCases/orders/listOrders';
 import { createOrder } from './app/useCases/orders/createOrder';
+import { changeOrderStatus } from './app/useCases/orders/changeOrderStatus';
 
 export const router = Router();
 
@@ -56,9 +57,7 @@ router.post('/orders', createOrder);
 
 // Change order status
 // Put = change everything // Patch = individual changes
-router.patch('/orders/:orderId', (req, res) => {
-  res.send('OK');
-});
+router.patch('/orders/:orderId', changeOrderStatus);
 
 // Delete/cancel order
 router.delete('/orders/:orderId', (req, res) => {
